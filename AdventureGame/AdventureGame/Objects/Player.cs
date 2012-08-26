@@ -25,5 +25,18 @@ namespace AdventureGameNamespace
             : base(position)
         {
         }
+
+        public override void KeyDown(List<Keys> keys)
+        {
+            //StepingAngle:
+            if (keys.Contains(Keys.A))
+                TryStep(Directions.Left, 3);
+            if (keys.Contains(Keys.D))
+                TryStep(Directions.Right, 3);
+            if (keys.Contains(Keys.W))
+                TryStep(Directions.Up, 3);
+            if (keys.Contains(Keys.S))
+                TryStep(Directions.Down, 3);
+        }
     }
 }

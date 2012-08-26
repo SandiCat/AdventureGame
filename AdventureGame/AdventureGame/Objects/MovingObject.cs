@@ -25,5 +25,25 @@ namespace AdventureGameNamespace
             : base(position)
         {
         }
+
+        protected void TryStep(float angle, int distance)
+        {
+            StepAngle(angle, distance);
+
+            bool ranIntoWall = false;
+            foreach (var solid in ObjectManager.Get(typeof(SolidObject)))
+            {
+                if (IsColliding(solid))
+                {
+                    ranIntoWall = true;
+                    break;
+                }
+            }
+
+            if (ranIntoWall)
+            {
+                StepAngle(angle, -distance);
+            }
+        }
     }
 }
