@@ -107,9 +107,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Objects\DungeonWall.cs" />
     <Compile Include="Objects\MovingObject.cs" />
     <Compile Include="Objects\Player.cs" />
     <Compile Include="Objects\SolidObject.cs" />
+    <Compile Include="Objects\Wall.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="AdventureGame.cs" />

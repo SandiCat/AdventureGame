@@ -15,13 +15,13 @@ using Debugging;
 
 namespace AdventureGameNamespace
 {
-    public abstract class SolidObject : GameObject
+    public abstract class Wall : SolidObject
     {
-        public SolidObject()
+        public Wall()
             : base()
         {
         }
-        public SolidObject(Vector2 position)
+        public Wall(Vector2 position)
             : base(position)
         {
         }

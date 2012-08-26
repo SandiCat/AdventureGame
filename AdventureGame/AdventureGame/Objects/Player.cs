@@ -30,13 +30,13 @@ namespace AdventureGameNamespace
         {
             //StepingAngle:
             if (keys.Contains(Keys.A))
-                TryStep(Directions.Left, 3);
+                TryStep(Directions.Left, 4);
             if (keys.Contains(Keys.D))
-                TryStep(Directions.Right, 3);
+                TryStep(Directions.Right, 4);
             if (keys.Contains(Keys.W))
-                TryStep(Directions.Up, 3);
+                TryStep(Directions.Up, 4);
             if (keys.Contains(Keys.S))
-                TryStep(Directions.Down, 3);
+                TryStep(Directions.Down, 4);
         }
     }
 }

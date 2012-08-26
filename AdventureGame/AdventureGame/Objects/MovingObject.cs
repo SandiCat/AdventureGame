@@ -15,7 +15,7 @@ using Debugging;
 
 namespace AdventureGameNamespace
 {
-    public class MovingObject : GameObject
+    public abstract class MovingObject : GameObject
     {
         public MovingObject()
             : base()
@@ -31,7 +31,8 @@ namespace AdventureGameNamespace
             StepAngle(angle, distance);
 
             bool ranIntoWall = false;
-            foreach (var solid in ObjectManager.Get(typeof(SolidObject)))
+            List<GameObject> solids = ObjectManager.Objects.Where(obj => obj is SolidObject).ToList();
+            foreach (var solid in solids)
             {
                 if (IsColliding(solid))
                 {

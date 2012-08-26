@@ -72,7 +72,7 @@ namespace AdventureGameNamespace
             Console.Font = Content.Load<SpriteFont>("DebuggConsoleFont");
 
             //Initialize default sprites:
-            TextureContainer.DefaultTextures[typeof(SolidObject)] = TextureContainer.ColoredRectangle(Color.Black, Grid.SquareSide, Grid.SquareSide);
+            TextureContainer.DefaultTextures[typeof(DungeonWall)] = TextureContainer.ColoredRectangle(Color.Black, Grid.SquareSide, Grid.SquareSide);
             TextureContainer.DefaultTextures[typeof(Player)] = TextureContainer.ColoredRectangle(Color.Yellow, Grid.SquareSide, Grid.SquareSide);
 
             //Load sounds:
@@ -81,7 +81,7 @@ namespace AdventureGameNamespace
             TileObjectCreator.CreateWithinGrid(
                 new Dictionary<char,Type>()
                 {
-                    {'w', typeof(SolidObject)},
+                    {'w', typeof(DungeonWall)},
                     {'p', typeof(Player)},
                     {'.', null}
                 },
