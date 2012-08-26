@@ -65,14 +65,40 @@ namespace AdventureGameNamespace
             //Initialize the texture container:
             TextureContainer.Initialize();
 
+            //Initalize the grid:
+            Grid.Initialize(40);
+
             //Load fonts:
             Console.Font = Content.Load<SpriteFont>("DebuggConsoleFont");
 
             //Initialize default sprites:
+            TextureContainer.DefaultTextures[typeof(SolidObject)] = TextureContainer.ColoredRectangle(Color.Black, Grid.SquareSide, Grid.SquareSide);
+            TextureContainer.DefaultTextures[typeof(Player)] = TextureContainer.ColoredRectangle(Color.Yellow, Grid.SquareSide, Grid.SquareSide);
 
             //Load sounds:
 
             //Create game objects:
+            TileObjectCreator.CreateWithinGrid(
+                new Dictionary<char,Type>()
+                {
+                    {'w', typeof(SolidObject)},
+                    {'p', typeof(Player)},
+                    {'.', null}
+                },
+                new string[]{
+                    "wwwwwwwwwwwwww",
+                    "w............w",
+                    "w............w",
+                    "w............w",
+                    "w............w",
+                    "w.....p......w",
+                    "w............w",
+                    "w............w",
+                    "w............w",
+                    "w............w",
+                    "w............w",
+                    "wwwwwwwwwwwwww"
+                });
 
             //Make a reference to the UI objects: (so that other objects can interact with them)
         }
@@ -90,7 +116,7 @@ namespace AdventureGameNamespace
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Black);
+            GraphicsDevice.Clear(Color.Gray);
 
             spriteBatch.Begin();
             ObjectManager.DrawAll();
